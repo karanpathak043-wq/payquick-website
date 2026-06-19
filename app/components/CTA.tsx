@@ -20,14 +20,16 @@ export default function CTA() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
           <a
-            href="#"
+            href="mailto:business@payquickfintech.com"
             className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-pq-primary bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 group"
           >
             Talk to Our Setup Experts
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
           <a
-            href="#"
+            href="https://wa.me/919967754782"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white border-2 border-white/20 rounded-2xl hover:bg-white/10 transition-all duration-300"
           >
             <MessageCircle className="w-4 h-4" />
