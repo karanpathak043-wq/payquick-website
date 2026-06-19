@@ -42,18 +42,15 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-18">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-0 group">
+            <Link href="/" className="flex items-center group">
               <Image
-                src="/payquick-icon.png"
+                src="/payquick-logo.png"
                 alt="PayQuick"
-                width={38}
-                height={38}
-                className="object-contain"
+                width={288}
+                height={162}
+                className="object-contain h-18 w-auto"
                 priority
               />
-              <span className="text-xl font-bold text-pq-text tracking-tight ml-2">
-                Pay<span className="gradient-text">Quick</span>
-              </span>
             </Link>
 
             {/* Desktop Nav */}
