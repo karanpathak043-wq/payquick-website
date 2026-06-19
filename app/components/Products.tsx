@@ -72,7 +72,7 @@ export default function Products() {
   return (
     <section id="products" className="section-padding bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16 reveal">
           <p className="text-sm font-semibold text-pq-accent uppercase tracking-widest mb-3">Our Products</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-pq-text tracking-tight mb-5">
             One platform. <span className="gradient-text">Every way to get paid.</span>
@@ -85,14 +85,34 @@ export default function Products() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product, index) => {
             const Icon = product.icon;
+            const isFeatured = index === 0;
             return (
-              <div key={index} className="group relative bg-white rounded-2xl border border-pq-border/70 p-6 hover:border-pq-accent/30 hover:shadow-xl hover:shadow-pq-accent/5 transition-all duration-500 hover:-translate-y-1">
+              <div
+                key={index}
+                className={`group relative rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 reveal reveal-delay-${Math.min(index % 3 + 1, 4)} ${
+                  isFeatured
+                    ? "md:col-span-2 lg:col-span-1 bg-gradient-to-br from-pq-accent/5 via-white to-pq-gradient-end/5 border-2 border-pq-accent/30 shadow-xl shadow-pq-accent/8 hover:shadow-2xl hover:shadow-pq-accent/15 hover:border-pq-accent/50"
+                    : "bg-white border border-pq-border/70 hover:border-pq-accent/30 hover:shadow-xl hover:shadow-pq-accent/5"
+                }`}
+              >
+                {isFeatured && (
+                  <div className="absolute -top-3 left-6">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r from-pq-accent to-pq-gradient-mid shadow-lg shadow-pq-accent/30">
+                      <span className="w-1.5 h-1.5 rounded-full bg-white/80 animate-pulse" />
+                      Most Popular
+                    </span>
+                  </div>
+                )}
                 <span className={`inline-flex px-3 py-1 rounded-full text-xs font-semibold mb-4 ${product.labelColor}`}>{product.label}</span>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-pq-accent/10 to-pq-gradient-end/10 flex items-center justify-center group-hover:from-pq-accent/20 group-hover:to-pq-gradient-end/20 transition-colors duration-300">
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-colors duration-300 ${
+                    isFeatured
+                      ? "bg-gradient-to-br from-pq-accent/20 to-pq-gradient-end/20 group-hover:from-pq-accent/30 group-hover:to-pq-gradient-end/30"
+                      : "bg-gradient-to-br from-pq-accent/10 to-pq-gradient-end/10 group-hover:from-pq-accent/20 group-hover:to-pq-gradient-end/20"
+                  }`}>
                     <Icon className="w-5 h-5 text-pq-accent" />
                   </div>
-                  <h3 className="text-lg font-bold text-pq-text">{product.title}</h3>
+                  <h3 className={`text-lg font-bold ${isFeatured ? "text-pq-text" : "text-pq-text"}`}>{product.title}</h3>
                 </div>
                 <p className="text-sm text-pq-text-secondary leading-relaxed mb-5">{product.body}</p>
                 <div className="pt-4 border-t border-pq-border/50 flex flex-wrap gap-x-4 gap-y-2">

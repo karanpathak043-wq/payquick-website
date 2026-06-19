@@ -47,7 +47,7 @@ export default function PricingPage() {
               <span className="text-4xl font-extrabold text-pq-text">2%</span>
               <span className="text-pq-text-muted ml-1">per transaction</span>
             </div>
-            <a href="#" className="inline-flex items-center gap-2 w-full justify-center px-6 py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-pq-accent to-pq-accent-light rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <a href="mailto:business@payquickfintech.com" className="inline-flex items-center gap-2 w-full justify-center px-6 py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-pq-accent to-pq-accent-light rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
               Get Started <ArrowRight className="w-4 h-4" />
             </a>
           </div>
@@ -65,7 +65,7 @@ export default function PricingPage() {
                 <span className="text-4xl font-extrabold">Custom</span>
                 <span className="text-slate-400 ml-1 text-sm">volume-based</span>
               </div>
-              <a href="#" className="inline-flex items-center gap-2 w-full justify-center px-6 py-3.5 text-sm font-semibold text-pq-primary bg-white rounded-xl hover:bg-slate-50 transition-all duration-300">
+              <a href="https://wa.me/919967754782" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 w-full justify-center px-6 py-3.5 text-sm font-semibold text-pq-primary bg-white rounded-xl hover:bg-slate-50 transition-all duration-300">
                 Contact Sales <ArrowRight className="w-4 h-4" />
               </a>
             </div>

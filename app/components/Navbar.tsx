@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, Zap, Mail, MessageCircle } from "lucide-react";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+  const pathname = usePathname();
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const navLinks = [
     { label: "Pricing", href: "/pricing" },
@@ -14,9 +17,27 @@ export default function Navbar() {
     { label: "About", href: "/about" },
   ];
 
+  // Close mobile menu on outside click
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target as Node)) {
+        setMobileOpen(false);
+      }
+    }
+    if (mobileOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [mobileOpen]);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 glass-strong">
+      <nav className="fixed top-0 left-0 right-0 z-50 glass-strong" ref={mobileMenuRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-18">
             {/* Logo */}
@@ -32,15 +53,22 @@ export default function Navbar() {
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="px-4 py-2 text-sm font-medium text-pq-text-secondary hover:text-pq-accent transition-colors duration-200 rounded-lg hover:bg-pq-accent/5"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                      isActive
+                        ? "text-pq-accent bg-pq-accent/8 font-semibold"
+                        : "text-pq-text-secondary hover:text-pq-accent hover:bg-pq-accent/5"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* CTA */}
@@ -72,16 +100,23 @@ export default function Navbar() {
         {mobileOpen && (
           <div className="md:hidden glass-strong border-t border-pq-border animate-fade-in-up">
             <div className="px-4 py-4 space-y-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block px-4 py-3 text-sm font-medium text-pq-text-secondary hover:text-pq-accent hover:bg-pq-accent/5 rounded-lg transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={`block px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
+                      isActive
+                        ? "text-pq-accent bg-pq-accent/8 font-semibold"
+                        : "text-pq-text-secondary hover:text-pq-accent hover:bg-pq-accent/5"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
               <div className="pt-3 border-t border-pq-border mt-2">
                 <button
                   onClick={() => { setMobileOpen(false); setContactOpen(true); }}

@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   Wallet,
   BarChart3,
+  ArrowRight,
 } from "lucide-react";
 
 export default function Hero() {
@@ -47,7 +48,7 @@ export default function Hero() {
               infrastructure so you can focus on scaling.
             </p>
 
-            {/* CTA */}
+            {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <a
                 href="#cta"
@@ -55,6 +56,13 @@ export default function Hero() {
               >
                 Talk to Our Setup Experts
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+              <a
+                href="/pricing"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 text-base font-semibold text-pq-accent border-2 border-pq-accent/25 rounded-2xl hover:bg-pq-accent/5 hover:border-pq-accent/50 transition-all duration-300 group"
+              >
+                View Pricing
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
 
@@ -77,128 +85,149 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right column - Dashboard mockup */}
+          {/* Right column - Dashboard mockup (desktop) */}
           <div className="relative animate-slide-in-right hidden lg:block">
-            <div className="relative">
-              {/* Main dashboard card */}
-              <div className="relative bg-white rounded-3xl shadow-2xl shadow-pq-accent/10 border border-pq-border/60 p-6 animate-float-slow">
-                {/* Dashboard header */}
-                <div className="flex items-center justify-between mb-6">
-                  <div>
-                    <p className="text-xs text-pq-text-muted font-medium uppercase tracking-wider">
-                      Dashboard Overview
-                    </p>
-                    <p className="text-2xl font-bold text-pq-text mt-1">
-                      ₹4,82,350
-                    </p>
-                    <p className="text-xs text-pq-success font-medium flex items-center gap-1 mt-0.5">
-                      <TrendingUp className="w-3 h-3" />
-                      +23.5% from last month
-                    </p>
-                  </div>
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-pq-accent to-pq-gradient-end flex items-center justify-center">
-                    <BarChart3 className="w-6 h-6 text-white" />
-                  </div>
-                </div>
+            <DashboardCard />
+          </div>
+        </div>
 
-                {/* Mini chart bars */}
-                <div className="flex items-end gap-1.5 h-24 mb-6">
-                  {[40, 65, 45, 80, 55, 90, 70, 95, 60, 85, 75, 100].map(
-                    (h, i) => (
-                      <div
-                        key={i}
-                        className="flex-1 rounded-t-md bg-gradient-to-t from-pq-accent/20 to-pq-accent/60 transition-all duration-500 hover:to-pq-accent"
-                        style={{
-                          height: `${h}%`,
-                          animationDelay: `${i * 0.1}s`,
-                        }}
-                      />
-                    )
-                  )}
-                </div>
-
-                {/* Transaction rows */}
-                <div className="space-y-3">
-                  {[
-                    {
-                      name: "Shopify Store #421",
-                      amount: "₹12,500",
-                      status: "Success",
-                      icon: CreditCard,
-                    },
-                    {
-                      name: "UPI Collect — Raj",
-                      amount: "₹3,200",
-                      status: "Success",
-                      icon: IndianRupee,
-                    },
-                    {
-                      name: "Payment Link #89",
-                      amount: "₹8,750",
-                      status: "Settled",
-                      icon: Wallet,
-                    },
-                  ].map((tx, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center justify-between py-2.5 px-3 rounded-xl bg-pq-surface hover:bg-pq-surface-alt transition-colors"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-pq-accent/10 flex items-center justify-center">
-                          <tx.icon className="w-4 h-4 text-pq-accent" />
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium text-pq-text">
-                            {tx.name}
-                          </p>
-                          <p className="text-xs text-pq-text-muted">
-                            Just now
-                          </p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-sm font-semibold text-pq-text">
-                          {tx.amount}
-                        </p>
-                        <p className="text-xs font-medium text-pq-success flex items-center gap-0.5 justify-end">
-                          <CheckCircle2 className="w-3 h-3" />
-                          {tx.status}
-                        </p>
-                      </div>
+        {/* Mobile dashboard card - simplified, shown below copy on small screens */}
+        <div className="lg:hidden mt-10 animate-fade-in-up">
+          <div className="bg-white rounded-2xl shadow-xl shadow-pq-accent/10 border border-pq-border/60 p-5 max-w-sm mx-auto">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <p className="text-xs text-pq-text-muted font-medium uppercase tracking-wider">
+                  Dashboard Overview
+                </p>
+                <p className="text-2xl font-bold text-pq-text mt-0.5">₹4,82,350</p>
+                <p className="text-xs text-pq-success font-medium flex items-center gap-1 mt-0.5">
+                  <TrendingUp className="w-3 h-3" />
+                  +23.5% from last month
+                </p>
+              </div>
+              <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-pq-accent to-pq-gradient-end flex items-center justify-center">
+                <BarChart3 className="w-5 h-5 text-white" />
+              </div>
+            </div>
+            <div className="space-y-2.5">
+              {[
+                { name: "Shopify Store #421", amount: "₹12,500", icon: CreditCard },
+                { name: "UPI Collect — Raj", amount: "₹3,200", icon: IndianRupee },
+                { name: "Payment Link #89", amount: "₹8,750", icon: Wallet },
+              ].map((tx, i) => (
+                <div key={i} className="flex items-center justify-between py-2 px-3 rounded-xl bg-pq-surface">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-7 h-7 rounded-lg bg-pq-accent/10 flex items-center justify-center">
+                      <tx.icon className="w-3.5 h-3.5 text-pq-accent" />
                     </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Floating success rate card */}
-              <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl border border-pq-border/50 px-4 py-3 animate-float">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-pq-success/10 flex items-center justify-center">
-                    <CheckCircle2 className="w-4 h-4 text-pq-success" />
+                    <p className="text-sm font-medium text-pq-text">{tx.name}</p>
                   </div>
-                  <div>
-                    <p className="text-xs text-pq-text-muted">Success Rate</p>
-                    <p className="text-lg font-bold text-pq-text">99.7%</p>
+                  <div className="text-right">
+                    <p className="text-sm font-semibold text-pq-text">{tx.amount}</p>
+                    <p className="text-xs font-medium text-pq-success flex items-center gap-0.5 justify-end">
+                      <CheckCircle2 className="w-3 h-3" /> Success
+                    </p>
                   </div>
                 </div>
-              </div>
-
-              {/* Floating settlement card */}
-              <div className="absolute -bottom-3 -left-6 bg-white rounded-2xl shadow-xl border border-pq-border/50 px-4 py-3 animate-float" style={{ animationDelay: "2s" }}>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-pq-accent/10 flex items-center justify-center">
-                    <IndianRupee className="w-4 h-4 text-pq-accent" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-pq-text-muted">Settled Today</p>
-                    <p className="text-lg font-bold text-pq-text">₹1.2L</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function DashboardCard() {
+  return (
+    <div className="relative">
+      {/* Main dashboard card */}
+      <div className="relative bg-white rounded-3xl shadow-2xl shadow-pq-accent/10 border border-pq-border/60 p-6 animate-float-slow">
+        {/* Dashboard header */}
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <p className="text-xs text-pq-text-muted font-medium uppercase tracking-wider">
+              Dashboard Overview
+            </p>
+            <p className="text-2xl font-bold text-pq-text mt-1">₹4,82,350</p>
+            <p className="text-xs text-pq-success font-medium flex items-center gap-1 mt-0.5">
+              <TrendingUp className="w-3 h-3" />
+              +23.5% from last month
+            </p>
+          </div>
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-pq-accent to-pq-gradient-end flex items-center justify-center">
+            <BarChart3 className="w-6 h-6 text-white" />
+          </div>
+        </div>
+
+        {/* Mini chart bars */}
+        <div className="flex items-end gap-1.5 h-24 mb-6">
+          {[40, 65, 45, 80, 55, 90, 70, 95, 60, 85, 75, 100].map((h, i) => (
+            <div
+              key={i}
+              className="flex-1 rounded-t-md bg-gradient-to-t from-pq-accent/20 to-pq-accent/60 transition-all duration-500 hover:to-pq-accent"
+              style={{ height: `${h}%`, animationDelay: `${i * 0.1}s` }}
+            />
+          ))}
+        </div>
+
+        {/* Transaction rows */}
+        <div className="space-y-3">
+          {[
+            { name: "Shopify Store #421", amount: "₹12,500", status: "Success", icon: CreditCard },
+            { name: "UPI Collect — Raj", amount: "₹3,200", status: "Success", icon: IndianRupee },
+            { name: "Payment Link #89", amount: "₹8,750", status: "Settled", icon: Wallet },
+          ].map((tx, i) => (
+            <div
+              key={i}
+              className="flex items-center justify-between py-2.5 px-3 rounded-xl bg-pq-surface hover:bg-pq-surface-alt transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-pq-accent/10 flex items-center justify-center">
+                  <tx.icon className="w-4 h-4 text-pq-accent" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-pq-text">{tx.name}</p>
+                  <p className="text-xs text-pq-text-muted">Just now</p>
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="text-sm font-semibold text-pq-text">{tx.amount}</p>
+                <p className="text-xs font-medium text-pq-success flex items-center gap-0.5 justify-end">
+                  <CheckCircle2 className="w-3 h-3" />
+                  {tx.status}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Floating success rate card */}
+      <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl border border-pq-border/50 px-4 py-3 animate-float">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-full bg-pq-success/10 flex items-center justify-center">
+            <CheckCircle2 className="w-4 h-4 text-pq-success" />
+          </div>
+          <div>
+            <p className="text-xs text-pq-text-muted">Success Rate</p>
+            <p className="text-lg font-bold text-pq-text">99.7%</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Floating settlement card */}
+      <div className="absolute -bottom-3 -left-6 bg-white rounded-2xl shadow-xl border border-pq-border/50 px-4 py-3 animate-float" style={{ animationDelay: "2s" }}>
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-full bg-pq-accent/10 flex items-center justify-center">
+            <IndianRupee className="w-4 h-4 text-pq-accent" />
+          </div>
+          <div>
+            <p className="text-xs text-pq-text-muted">Settled Today</p>
+            <p className="text-lg font-bold text-pq-text">₹1.2L</p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
