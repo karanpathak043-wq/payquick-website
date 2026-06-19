@@ -4,7 +4,7 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 
 export default function CTA() {
   return (
-    <section id="cta" className="section-padding bg-gradient-to-br from-pq-primary via-[#1e1b4b] to-[#0f172a] relative overflow-hidden">
+    <section id="cta" className="section-padding bg-gradient-to-br from-pq-primary via-[#1a1050] to-[#0d0825] relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pq-accent/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-pq-gradient-end/10 rounded-full blur-3xl" />

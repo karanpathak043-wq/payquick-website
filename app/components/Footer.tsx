@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Zap, Shield, Lock, Mail, MessageCircle } from "lucide-react";
 
 const productLinks = [
@@ -36,9 +37,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-pq-accent to-pq-gradient-end flex items-center justify-center">
-                <Zap className="w-4 h-4 text-white" strokeWidth={2.5} />
-              </div>
+              <Image
+                src="/payquick-icon.png"
+                alt="PayQuick"
+                width={30}
+                height={30}
+                className="object-contain"
+              />
               <span className="text-lg font-bold text-white">
                 Pay<span className="text-pq-accent-lighter">Quick</span>
               </span>

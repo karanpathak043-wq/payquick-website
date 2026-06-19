@@ -25,6 +25,13 @@ export const metadata: Metadata = {
     "accept payments online",
     "Indian payment gateway",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/payquick-icon.png", type: "image/png" },
+    ],
+    apple: "/payquick-icon.png",
+  },
 };
 
 export default function RootLayout({

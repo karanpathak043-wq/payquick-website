@@ -53,7 +53,7 @@ export default function PricingPage() {
           </div>
 
           {/* Enterprise plan */}
-          <div className="bg-gradient-to-br from-pq-primary to-[#1e1b4b] rounded-2xl p-8 text-white relative overflow-hidden">
+          <div className="bg-gradient-to-br from-pq-primary to-[#1a1050] rounded-2xl p-8 text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-pq-accent/10 rounded-full blur-2xl" />
             <div className="relative">
               <div className="flex items-center gap-2 mb-2">

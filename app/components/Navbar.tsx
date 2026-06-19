@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, Zap, Mail, MessageCircle } from "lucide-react";
+import { Menu, X, Mail, MessageCircle } from "lucide-react";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -41,12 +42,16 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-18">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-pq-accent to-pq-gradient-end flex items-center justify-center shadow-lg shadow-pq-accent/20 transition-transform duration-300 group-hover:scale-105">
-                <Zap className="w-5 h-5 text-white" strokeWidth={2.5} />
-                <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-br from-pq-accent to-pq-gradient-end opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-300" />
-              </div>
-              <span className="text-xl font-bold text-pq-text tracking-tight">
+            <Link href="/" className="flex items-center gap-0 group">
+              <Image
+                src="/payquick-icon.png"
+                alt="PayQuick"
+                width={38}
+                height={38}
+                className="object-contain"
+                priority
+              />
+              <span className="text-xl font-bold text-pq-text tracking-tight ml-2">
                 Pay<span className="gradient-text">Quick</span>
               </span>
             </Link>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- PayQuick asterisk/bolt icon in brand violet #573CFF -->
+  <rect width="200" height="200" rx="40" fill="#573CFF"/>
+  <!-- Icon paths recreated from the brand mark: a 6-point asterisk with arrow tips -->
+  <g fill="white" transform="translate(100,100)">
+    <!-- Top-right arrow arm -->
+    <path d="M8 -62 L38 -32 L22 -16 L54 -16 L54 -48 L38 -32 L8 -62Z"/>
+    <!-- Bottom-left arrow arm -->
+    <path d="M-8 62 L-38 32 L-22 16 L-54 16 L-54 48 L-38 32 L-8 62Z"/>
+    <!-- Right arrow arm -->
+    <path d="M62 -8 L62 22 L32 -8 L62 -38 L62 -8Z" transform="rotate(-45)"/>
+    <!-- Top-left arrow arm -->
+    <path d="M-62 -8 L-62 22 L-32 -8 L-62 -38 L-62 -8Z" transform="rotate(45)"/>
+  </g>
+</svg>

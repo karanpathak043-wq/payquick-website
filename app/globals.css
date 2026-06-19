@@ -7,27 +7,27 @@
   --font-sans: 'Inter', var(--font-geist-sans), sans-serif;
   --font-mono: var(--font-geist-mono);
   
-  /* PayQuick Brand Colors */
-  --color-pq-primary: #1a1a2e;
-  --color-pq-accent: #4f46e5;
-  --color-pq-accent-light: #6366f1;
-  --color-pq-accent-lighter: #818cf8;
-  --color-pq-success: #10b981;
-  --color-pq-success-light: #34d399;
-  --color-pq-surface: #f8fafc;
-  --color-pq-surface-alt: #f1f5f9;
-  --color-pq-border: #e2e8f0;
-  --color-pq-text: #0f172a;
-  --color-pq-text-secondary: #475569;
-  --color-pq-text-muted: #94a3b8;
-  --color-pq-gradient-start: #4f46e5;
-  --color-pq-gradient-mid: #7c3aed;
-  --color-pq-gradient-end: #06b6d4;
+  /* PayQuick Brand Colors — v2 */
+  --color-pq-primary:          #110C33;  /* Deep navy-purple (dark bg / CTA sections) */
+  --color-pq-accent:           #573CFF;  /* Electric violet — primary brand */
+  --color-pq-accent-light:     #7157FF;  /* Lighter violet hover state */
+  --color-pq-accent-lighter:   #9580FF;  /* Muted violet for text on dark bg */
+  --color-pq-success:          #10b981;  /* Emerald green — success/trust signals */
+  --color-pq-success-light:    #34d399;
+  --color-pq-surface:          #F8F8FC;  /* Near-white page bg */
+  --color-pq-surface-alt:      #EDEDF5;  /* Cards / alternate bg */
+  --color-pq-border:           #DDDCEF;  /* Subtle border */
+  --color-pq-text:             #000005;  /* Near-black body text */
+  --color-pq-text-secondary:   #3D3A5C;  /* Secondary text */
+  --color-pq-text-muted:       #7B7899;  /* Muted / placeholder */
+  --color-pq-gradient-start:   #573CFF;
+  --color-pq-gradient-mid:     #7157FF;
+  --color-pq-gradient-end:     #A78BFF;  /* Soft lavender tail */
 }
 
 :root {
   --background: #ffffff;
-  --foreground: #0f172a;
+  --foreground: #000005;
 }
 
 * {
@@ -47,14 +47,14 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #F8F8FC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #C4C2E0;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #9580FF;
 }
 
 /* Animations */
@@ -69,8 +69,8 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(79, 70, 229, 0.15); }
-  50% { box-shadow: 0 0 40px rgba(79, 70, 229, 0.3); }
+  0%, 100% { box-shadow: 0 0 20px rgba(87, 60, 255, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(87, 60, 255, 0.3); }
 }
 
 @keyframes shimmer {
@@ -132,22 +132,22 @@ body {
 
 /* Glass morphism */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(248, 248, 252, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .glass-strong {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(221, 220, 239, 0.8);
 }
 
-/* Gradient text */
+/* Gradient text — uses new violet palette */
 .gradient-text {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed, #06b6d4);
+  background: linear-gradient(135deg, #573CFF, #7157FF, #A78BFF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -205,4 +205,3 @@ body {
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
-
