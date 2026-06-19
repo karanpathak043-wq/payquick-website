@@ -36,17 +36,14 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4 group">
+            <Link href="/" className="flex items-center mb-4 group">
               <Image
-                src="/payquick-icon.png"
+                src="/payquick-logo.png"
                 alt="PayQuick"
-                width={30}
-                height={30}
-                className="object-contain"
+                width={288}
+                height={162}
+                className="object-contain h-18 w-auto brightness-0 invert"
               />
-              <span className="text-lg font-bold text-white">
-                Pay<span className="text-pq-accent-lighter">Quick</span>
-              </span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
               Fast, human-first payments for Indian businesses of every size.
