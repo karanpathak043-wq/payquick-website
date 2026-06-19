@@ -1,15 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
-  <!-- PayQuick asterisk/bolt icon in brand violet #573CFF -->
-  <rect width="200" height="200" rx="40" fill="#573CFF"/>
-  <!-- Icon paths recreated from the brand mark: a 6-point asterisk with arrow tips -->
-  <g fill="white" transform="translate(100,100)">
-    <!-- Top-right arrow arm -->
-    <path d="M8 -62 L38 -32 L22 -16 L54 -16 L54 -48 L38 -32 L8 -62Z"/>
-    <!-- Bottom-left arrow arm -->
-    <path d="M-8 62 L-38 32 L-22 16 L-54 16 L-54 48 L-38 32 L-8 62Z"/>
-    <!-- Right arrow arm -->
-    <path d="M62 -8 L62 22 L32 -8 L62 -38 L62 -8Z" transform="rotate(-45)"/>
-    <!-- Top-left arrow arm -->
-    <path d="M-62 -8 L-62 22 L-32 -8 L-62 -38 L-62 -8Z" transform="rotate(45)"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156.8 155.16">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: blue;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <polygon class="cls-1" points="38.74 .66 78.32 .66 78.32 48.7 127.02 0 156.8 0 156.8 33.24 111.64 78.4 156.8 78.4 156.8 121.76 136.24 121.76 38.34 23.86 38.74 .66"/>
+      <path class="cls-1" d="M2.8,54.63s30.58-.51,35.94,0,68,8.98,68,68v32.53h-28.42v-45.25l-38.17,45.25H0l50.15-66.31H2.8v-34.22Z"/>
+    </g>
   </g>
 </svg>
